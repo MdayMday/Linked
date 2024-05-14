@@ -1,0 +1,43 @@
+y = 0
+x = 0
+students = []
+studentsMath = []
+while (y == 0):
+    print("Insert the height:")
+    X1 = input()
+    if (X1.find('11')!=-1):
+        X1 = X1.replace("11", "95")
+    if (X1.find('10')!=-1):
+        X1 = X1.replace("10", "92")
+    height = X1.replace("'", ".")
+    studentsMath.insert(0, float(height))
+    print("Is that everyone?\n1. Yes\n2. No")
+    ans = int(input())
+    if (ans == 1):
+        y = 1
+    if (ans == 2):
+        y = 0 
+studentsMath.sort() 
+mid = len(studentsMath) // 2
+res = (studentsMath[mid] + studentsMath[~mid]) / 2
+res = str(res)
+final = res.replace(".", "'")
+while (x in range(len(studentsMath))):
+    slit = studentsMath.pop(x)
+    slit = str(slit)
+    slit = slit.replace(".", "'")
+    if (slit.find('95')!=-1):
+        slit = slit.replace("95", "11")
+    if (slit.find('92')!=-1):
+        slit = slit.replace("92", "10")
+    studentsMath.insert(x, slit)
+    x = x + 1
+final = str(final)
+if (final.find('94')!=-1):
+    final = final.replace("94", "11")
+if (final.find('92')!=-1):
+    final = final.replace("92", "10")
+if (final.find('91')!=-1):
+    final = final.replace("91", "10")
+print("List of heights in order:", studentsMath)
+print("Median of list is : " + final)
